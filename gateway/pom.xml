@@ -34,7 +34,6 @@
             <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
         </dependency>
 
-
     </dependencies>
 
     <build>
