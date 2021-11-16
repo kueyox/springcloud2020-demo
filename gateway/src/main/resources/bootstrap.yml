@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      config:
+        group: loadbance-test
+        server-addr: 192.168.1.118:8848
+        file-extension: yml
+        prefix: gateway
+        enabled: false
+  profiles:
+    active: dev

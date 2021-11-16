@@ -1,0 +1,62 @@
+server:
+  port: 8760
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  zipkin:
+    base-url: http://192.168.1.118:9411
+    sender:
+      type: web
+    service:
+      name: gateway
+  sleuth:
+    sampler:
+      probability: 1.0
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: consumer
+          uri: lb://consumer
+          predicates:
+            - Path=/demo-consumer/**
+          filters:
+            - StripPrefix=1
+
+        - id: provider
+          uri: lb://provider
+          predicates:
+            - Path=/demo-provider/**
+          filters:
+            - StripPrefix=1
+
+        - id: provider-2
+          uri: lb://provider-2
+          predicates:
+            - Path=/demo-provider-2/**
+          filters:
+            - StripPrefix=1
+    nacos:
+      discovery:
+        server-addr: 192.168.1.118:8848
+    sentinel:
+      transport:
+        dashboard: 192.168.1.118:9100
+        port: 8719
+#暴露的健康检查服务端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+feign:
+  sentinel:
+    enabled: true
+logging:
+  level:
+    org.springframework.cloud.openfeign: debug
