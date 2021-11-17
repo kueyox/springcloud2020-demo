@@ -1,0 +1,74 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  zipkin:
+    base-url: http://192.168.1.118:9411
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1.0
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.118:8848
+  #redis,mysql配置信息
+  redis:
+    host: 192.168.1.118
+    database: 0
+    port: 6379
+    timeout: 10000
+    password:
+    lettuce:
+      pool:
+        max-active: 100
+        max-idle: 20
+        min-idle: 1
+        max-wait: 10000
+  #数据库连接池配置
+  datasource:
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.1.184:3306/orangeiot?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+      username: root
+      password:
+      filters: stat,wall,log4j,config
+      max-active: 20
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: false
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 20
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    platform: mysql
+
+#pagehelper分页插件配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: false
+  support-methods-arguments: true
+  params: count=countsql
+#暴露的健康检查服务端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+logging:
+  level:
+    org.springframework.cloud.openfeign: debug
+    root: info
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.demo.entity
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

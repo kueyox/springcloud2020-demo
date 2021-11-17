@@ -1,0 +1,951 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.dao.OrangeDevUserMapper">
+  <resultMap id="BaseResultMap" type="com.demo.entity.OrangeDevUser">
+    <!--@mbg.generated-->
+    <!--@Table orange_dev_user-->
+    <id column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="mobilephone" jdbcType="VARCHAR" property="mobilephone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="usertype" jdbcType="VARCHAR" property="usertype" />
+    <result column="companyid" jdbcType="INTEGER" property="companyid" />
+    <result column="userphoto" jdbcType="VARCHAR" property="userphoto" />
+    <result column="userclient" jdbcType="VARCHAR" property="userclient" />
+    <result column="lastlogin" jdbcType="VARCHAR" property="lastlogin" />
+    <result column="isregister" jdbcType="INTEGER" property="isregister" />
+    <result column="company" jdbcType="VARCHAR" property="company" />
+    <result column="remark1" jdbcType="VARCHAR" property="remark1" />
+    <result column="remark2" jdbcType="VARCHAR" property="remark2" />
+    <result column="remark3" jdbcType="VARCHAR" property="remark3" />
+    <result column="remark4" jdbcType="VARCHAR" property="remark4" />
+    <result column="remark5" jdbcType="VARCHAR" property="remark5" />
+    <result column="createtime" jdbcType="VARCHAR" property="createtime" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="useraddress" jdbcType="VARCHAR" property="useraddress" />
+    <result column="firstlogin" jdbcType="INTEGER" property="firstlogin" />
+    <result column="ismute" jdbcType="INTEGER" property="ismute" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="disabled" jdbcType="INTEGER" property="disabled" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    userid, username, `password`, mobilephone, email, usertype, companyid, userphoto,
+    userclient, lastlogin, isregister, company, remark1, remark2, remark3, remark4, remark5,
+    createtime, nickname, useraddress, firstlogin, ismute, city, disabled
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from orange_dev_user
+    where userid = #{userid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from orange_dev_user
+    where userid = #{userid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="userid" keyProperty="userid" parameterType="com.demo.entity.OrangeDevUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into orange_dev_user (username, `password`, mobilephone,
+      email, usertype, companyid,
+      userphoto, userclient, lastlogin,
+      isregister, company, remark1,
+      remark2, remark3, remark4,
+      remark5, createtime, nickname,
+      useraddress, firstlogin, ismute,
+      city, disabled)
+    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{mobilephone,jdbcType=VARCHAR},
+      #{email,jdbcType=VARCHAR}, #{usertype,jdbcType=VARCHAR}, #{companyid,jdbcType=INTEGER},
+      #{userphoto,jdbcType=VARCHAR}, #{userclient,jdbcType=VARCHAR}, #{lastlogin,jdbcType=VARCHAR},
+      #{isregister,jdbcType=INTEGER}, #{company,jdbcType=VARCHAR}, #{remark1,jdbcType=VARCHAR},
+      #{remark2,jdbcType=VARCHAR}, #{remark3,jdbcType=VARCHAR}, #{remark4,jdbcType=VARCHAR},
+      #{remark5,jdbcType=VARCHAR}, #{createtime,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR},
+      #{useraddress,jdbcType=VARCHAR}, #{firstlogin,jdbcType=INTEGER}, #{ismute,jdbcType=INTEGER},
+      #{city,jdbcType=VARCHAR}, #{disabled,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="userid" keyProperty="userid" parameterType="com.demo.entity.OrangeDevUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into orange_dev_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="mobilephone != null">
+        mobilephone,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="usertype != null">
+        usertype,
+      </if>
+      <if test="companyid != null">
+        companyid,
+      </if>
+      <if test="userphoto != null">
+        userphoto,
+      </if>
+      <if test="userclient != null">
+        userclient,
+      </if>
+      <if test="lastlogin != null">
+        lastlogin,
+      </if>
+      <if test="isregister != null">
+        isregister,
+      </if>
+      <if test="company != null">
+        company,
+      </if>
+      <if test="remark1 != null">
+        remark1,
+      </if>
+      <if test="remark2 != null">
+        remark2,
+      </if>
+      <if test="remark3 != null">
+        remark3,
+      </if>
+      <if test="remark4 != null">
+        remark4,
+      </if>
+      <if test="remark5 != null">
+        remark5,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="useraddress != null">
+        useraddress,
+      </if>
+      <if test="firstlogin != null">
+        firstlogin,
+      </if>
+      <if test="ismute != null">
+        ismute,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="disabled != null">
+        disabled,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilephone != null">
+        #{mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null">
+        #{usertype,jdbcType=VARCHAR},
+      </if>
+      <if test="companyid != null">
+        #{companyid,jdbcType=INTEGER},
+      </if>
+      <if test="userphoto != null">
+        #{userphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="userclient != null">
+        #{userclient,jdbcType=VARCHAR},
+      </if>
+      <if test="lastlogin != null">
+        #{lastlogin,jdbcType=VARCHAR},
+      </if>
+      <if test="isregister != null">
+        #{isregister,jdbcType=INTEGER},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null">
+        #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark3 != null">
+        #{remark3,jdbcType=VARCHAR},
+      </if>
+      <if test="remark4 != null">
+        #{remark4,jdbcType=VARCHAR},
+      </if>
+      <if test="remark5 != null">
+        #{remark5,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="useraddress != null">
+        #{useraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="firstlogin != null">
+        #{firstlogin,jdbcType=INTEGER},
+      </if>
+      <if test="ismute != null">
+        #{ismute,jdbcType=INTEGER},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="disabled != null">
+        #{disabled,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.entity.OrangeDevUser">
+    <!--@mbg.generated-->
+    update orange_dev_user
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilephone != null">
+        mobilephone = #{mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null">
+        usertype = #{usertype,jdbcType=VARCHAR},
+      </if>
+      <if test="companyid != null">
+        companyid = #{companyid,jdbcType=INTEGER},
+      </if>
+      <if test="userphoto != null">
+        userphoto = #{userphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="userclient != null">
+        userclient = #{userclient,jdbcType=VARCHAR},
+      </if>
+      <if test="lastlogin != null">
+        lastlogin = #{lastlogin,jdbcType=VARCHAR},
+      </if>
+      <if test="isregister != null">
+        isregister = #{isregister,jdbcType=INTEGER},
+      </if>
+      <if test="company != null">
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null">
+        remark1 = #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        remark2 = #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark3 != null">
+        remark3 = #{remark3,jdbcType=VARCHAR},
+      </if>
+      <if test="remark4 != null">
+        remark4 = #{remark4,jdbcType=VARCHAR},
+      </if>
+      <if test="remark5 != null">
+        remark5 = #{remark5,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="useraddress != null">
+        useraddress = #{useraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="firstlogin != null">
+        firstlogin = #{firstlogin,jdbcType=INTEGER},
+      </if>
+      <if test="ismute != null">
+        ismute = #{ismute,jdbcType=INTEGER},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="disabled != null">
+        disabled = #{disabled,jdbcType=INTEGER},
+      </if>
+    </set>
+    where userid = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.demo.entity.OrangeDevUser">
+    <!--@mbg.generated-->
+    update orange_dev_user
+    set username = #{username,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      mobilephone = #{mobilephone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      usertype = #{usertype,jdbcType=VARCHAR},
+      companyid = #{companyid,jdbcType=INTEGER},
+      userphoto = #{userphoto,jdbcType=VARCHAR},
+      userclient = #{userclient,jdbcType=VARCHAR},
+      lastlogin = #{lastlogin,jdbcType=VARCHAR},
+      isregister = #{isregister,jdbcType=INTEGER},
+      company = #{company,jdbcType=VARCHAR},
+      remark1 = #{remark1,jdbcType=VARCHAR},
+      remark2 = #{remark2,jdbcType=VARCHAR},
+      remark3 = #{remark3,jdbcType=VARCHAR},
+      remark4 = #{remark4,jdbcType=VARCHAR},
+      remark5 = #{remark5,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      useraddress = #{useraddress,jdbcType=VARCHAR},
+      firstlogin = #{firstlogin,jdbcType=INTEGER},
+      ismute = #{ismute,jdbcType=INTEGER},
+      city = #{city,jdbcType=VARCHAR},
+      disabled = #{disabled,jdbcType=INTEGER}
+    where userid = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update orange_dev_user
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="username = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.username,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="`password` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.password,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="mobilephone = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.mobilephone,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="email = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.email,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="usertype = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.usertype,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="companyid = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.companyid,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="userphoto = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.userphoto,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="userclient = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.userclient,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="lastlogin = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.lastlogin,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="isregister = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.isregister,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="company = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.company,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="remark1 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.remark1,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="remark2 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.remark2,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="remark3 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.remark3,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="remark4 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.remark4,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="remark5 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.remark5,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="createtime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.createtime,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="nickname = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.nickname,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="useraddress = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.useraddress,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="firstlogin = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.firstlogin,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="ismute = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.ismute,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="city = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.city,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="disabled = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when userid = #{item.userid,jdbcType=INTEGER} then #{item.disabled,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+    </trim>
+    where userid in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.userid,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update orange_dev_user
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="username = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.username != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.username,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`password` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.password != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.password,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="mobilephone = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.mobilephone != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.mobilephone,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="email = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.email != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.email,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="usertype = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.usertype != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.usertype,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="companyid = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.companyid != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.companyid,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="userphoto = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.userphoto != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.userphoto,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="userclient = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.userclient != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.userclient,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="lastlogin = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.lastlogin != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.lastlogin,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="isregister = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.isregister != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.isregister,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="company = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.company != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.company,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="remark1 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.remark1 != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.remark1,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="remark2 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.remark2 != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.remark2,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="remark3 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.remark3 != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.remark3,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="remark4 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.remark4 != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.remark4,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="remark5 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.remark5 != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.remark5,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="createtime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createtime != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.createtime,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="nickname = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.nickname != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.nickname,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="useraddress = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.useraddress != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.useraddress,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="firstlogin = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.firstlogin != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.firstlogin,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="ismute = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.ismute != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.ismute,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="city = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.city != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.city,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="disabled = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.disabled != null">
+            when userid = #{item.userid,jdbcType=INTEGER} then #{item.disabled,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where userid in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.userid,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="userid" keyProperty="userid" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into orange_dev_user
+    (username, `password`, mobilephone, email, usertype, companyid, userphoto, userclient,
+      lastlogin, isregister, company, remark1, remark2, remark3, remark4, remark5, createtime,
+      nickname, useraddress, firstlogin, ismute, city, disabled)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.username,jdbcType=VARCHAR}, #{item.password,jdbcType=VARCHAR}, #{item.mobilephone,jdbcType=VARCHAR},
+        #{item.email,jdbcType=VARCHAR}, #{item.usertype,jdbcType=VARCHAR}, #{item.companyid,jdbcType=INTEGER},
+        #{item.userphoto,jdbcType=VARCHAR}, #{item.userclient,jdbcType=VARCHAR}, #{item.lastlogin,jdbcType=VARCHAR},
+        #{item.isregister,jdbcType=INTEGER}, #{item.company,jdbcType=VARCHAR}, #{item.remark1,jdbcType=VARCHAR},
+        #{item.remark2,jdbcType=VARCHAR}, #{item.remark3,jdbcType=VARCHAR}, #{item.remark4,jdbcType=VARCHAR},
+        #{item.remark5,jdbcType=VARCHAR}, #{item.createtime,jdbcType=VARCHAR}, #{item.nickname,jdbcType=VARCHAR},
+        #{item.useraddress,jdbcType=VARCHAR}, #{item.firstlogin,jdbcType=INTEGER}, #{item.ismute,jdbcType=INTEGER},
+        #{item.city,jdbcType=VARCHAR}, #{item.disabled,jdbcType=INTEGER})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="userid" keyProperty="userid" parameterType="com.demo.entity.OrangeDevUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into orange_dev_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userid,
+      </if>
+      username,
+      `password`,
+      mobilephone,
+      email,
+      usertype,
+      companyid,
+      userphoto,
+      userclient,
+      lastlogin,
+      isregister,
+      company,
+      remark1,
+      remark2,
+      remark3,
+      remark4,
+      remark5,
+      createtime,
+      nickname,
+      useraddress,
+      firstlogin,
+      ismute,
+      city,
+      disabled,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      #{username,jdbcType=VARCHAR},
+      #{password,jdbcType=VARCHAR},
+      #{mobilephone,jdbcType=VARCHAR},
+      #{email,jdbcType=VARCHAR},
+      #{usertype,jdbcType=VARCHAR},
+      #{companyid,jdbcType=INTEGER},
+      #{userphoto,jdbcType=VARCHAR},
+      #{userclient,jdbcType=VARCHAR},
+      #{lastlogin,jdbcType=VARCHAR},
+      #{isregister,jdbcType=INTEGER},
+      #{company,jdbcType=VARCHAR},
+      #{remark1,jdbcType=VARCHAR},
+      #{remark2,jdbcType=VARCHAR},
+      #{remark3,jdbcType=VARCHAR},
+      #{remark4,jdbcType=VARCHAR},
+      #{remark5,jdbcType=VARCHAR},
+      #{createtime,jdbcType=VARCHAR},
+      #{nickname,jdbcType=VARCHAR},
+      #{useraddress,jdbcType=VARCHAR},
+      #{firstlogin,jdbcType=INTEGER},
+      #{ismute,jdbcType=INTEGER},
+      #{city,jdbcType=VARCHAR},
+      #{disabled,jdbcType=INTEGER},
+    </trim>
+    on duplicate key update
+    <trim suffixOverrides=",">
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      username = #{username,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      mobilephone = #{mobilephone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      usertype = #{usertype,jdbcType=VARCHAR},
+      companyid = #{companyid,jdbcType=INTEGER},
+      userphoto = #{userphoto,jdbcType=VARCHAR},
+      userclient = #{userclient,jdbcType=VARCHAR},
+      lastlogin = #{lastlogin,jdbcType=VARCHAR},
+      isregister = #{isregister,jdbcType=INTEGER},
+      company = #{company,jdbcType=VARCHAR},
+      remark1 = #{remark1,jdbcType=VARCHAR},
+      remark2 = #{remark2,jdbcType=VARCHAR},
+      remark3 = #{remark3,jdbcType=VARCHAR},
+      remark4 = #{remark4,jdbcType=VARCHAR},
+      remark5 = #{remark5,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      useraddress = #{useraddress,jdbcType=VARCHAR},
+      firstlogin = #{firstlogin,jdbcType=INTEGER},
+      ismute = #{ismute,jdbcType=INTEGER},
+      city = #{city,jdbcType=VARCHAR},
+      disabled = #{disabled,jdbcType=INTEGER},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="userid" keyProperty="userid" parameterType="com.demo.entity.OrangeDevUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into orange_dev_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="mobilephone != null">
+        mobilephone,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="usertype != null">
+        usertype,
+      </if>
+      <if test="companyid != null">
+        companyid,
+      </if>
+      <if test="userphoto != null">
+        userphoto,
+      </if>
+      <if test="userclient != null">
+        userclient,
+      </if>
+      <if test="lastlogin != null">
+        lastlogin,
+      </if>
+      <if test="isregister != null">
+        isregister,
+      </if>
+      <if test="company != null">
+        company,
+      </if>
+      <if test="remark1 != null">
+        remark1,
+      </if>
+      <if test="remark2 != null">
+        remark2,
+      </if>
+      <if test="remark3 != null">
+        remark3,
+      </if>
+      <if test="remark4 != null">
+        remark4,
+      </if>
+      <if test="remark5 != null">
+        remark5,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="useraddress != null">
+        useraddress,
+      </if>
+      <if test="firstlogin != null">
+        firstlogin,
+      </if>
+      <if test="ismute != null">
+        ismute,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="disabled != null">
+        disabled,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilephone != null">
+        #{mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null">
+        #{usertype,jdbcType=VARCHAR},
+      </if>
+      <if test="companyid != null">
+        #{companyid,jdbcType=INTEGER},
+      </if>
+      <if test="userphoto != null">
+        #{userphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="userclient != null">
+        #{userclient,jdbcType=VARCHAR},
+      </if>
+      <if test="lastlogin != null">
+        #{lastlogin,jdbcType=VARCHAR},
+      </if>
+      <if test="isregister != null">
+        #{isregister,jdbcType=INTEGER},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null">
+        #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark3 != null">
+        #{remark3,jdbcType=VARCHAR},
+      </if>
+      <if test="remark4 != null">
+        #{remark4,jdbcType=VARCHAR},
+      </if>
+      <if test="remark5 != null">
+        #{remark5,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="useraddress != null">
+        #{useraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="firstlogin != null">
+        #{firstlogin,jdbcType=INTEGER},
+      </if>
+      <if test="ismute != null">
+        #{ismute,jdbcType=INTEGER},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="disabled != null">
+        #{disabled,jdbcType=INTEGER},
+      </if>
+    </trim>
+    on duplicate key update
+    <trim suffixOverrides=",">
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilephone != null">
+        mobilephone = #{mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null">
+        usertype = #{usertype,jdbcType=VARCHAR},
+      </if>
+      <if test="companyid != null">
+        companyid = #{companyid,jdbcType=INTEGER},
+      </if>
+      <if test="userphoto != null">
+        userphoto = #{userphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="userclient != null">
+        userclient = #{userclient,jdbcType=VARCHAR},
+      </if>
+      <if test="lastlogin != null">
+        lastlogin = #{lastlogin,jdbcType=VARCHAR},
+      </if>
+      <if test="isregister != null">
+        isregister = #{isregister,jdbcType=INTEGER},
+      </if>
+      <if test="company != null">
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null">
+        remark1 = #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        remark2 = #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark3 != null">
+        remark3 = #{remark3,jdbcType=VARCHAR},
+      </if>
+      <if test="remark4 != null">
+        remark4 = #{remark4,jdbcType=VARCHAR},
+      </if>
+      <if test="remark5 != null">
+        remark5 = #{remark5,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="useraddress != null">
+        useraddress = #{useraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="firstlogin != null">
+        firstlogin = #{firstlogin,jdbcType=INTEGER},
+      </if>
+      <if test="ismute != null">
+        ismute = #{ismute,jdbcType=INTEGER},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="disabled != null">
+        disabled = #{disabled,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
